@@ -28,23 +28,20 @@ cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"],
 cursor = cnxn.cursor()
 
 
-
-
-
-def inserir(nome,telefone,cpf):
-    cursor.execute("INSERT INTO cadastro VALUES (0,'{}','{}','{}')".format(nome,telefone,cpf))
+#enviar os dados
+    
+def inserir(Nome,Telefone,CPF):
+    cursor.execute('INSERT INTO cadastro(Nome,Telefone,CPF) VALUES (%s, %s, %s)',(Nome,Telefone,CPF))
     cnxn.commit()
 
 
 def inserir_an(motivo,tratamento,medicamento,qmedicamentos,alergia,qalergias,anestesia,ultimo,canal,gengiva,fuma,sangra,dor,desmaio,gravida,procedimento,cpf,nome):
-    cursor.execute("INSERT INTO anamnese1 VALUES (0,'{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(motivo,tratamento,medicamento,qmedicamentos,alergia,qalergias,anestesia,ultimo,canal,gengiva,fuma,sangra,dor,desmaio,gravida,procedimento,cpf,nome))
-    cnxn.commit()
-    
-def inserir_so(profissão,time,qtime,animal,qanimal,filho,nfilho,medo,sorriso,facebook,instagram,qinstagram,hobby,qhobby,ambiente,generom,programação, generof,cpf,nome):
-    cursor.execute("INSERT INTO sociais VALUES (0,'{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(profissão,time,qtime,animal,qanimal,filho,nfilho,medo,sorriso,facebook,instagram,qinstagram,hobby,qhobby,ambiente,generom,programação, generof,cpf,nome))
+    cursor.execute("INSERT INTO anamnese1(`Qual O Motivo Da Consulta`,`Tratamento ou Problema de Saude`,`Está Tomando Algum Medicamento`,`Quais Medicamentos`,`Tem alergia a algum medicamento`,`Apresenta Alergia a Quais Medicamentos`,`Teve Alguma Reação a Anestesia Local`,`Quando Foi o Seu Ultimo Tratamento Odontologico`,`Tratamento de Canal Protese Implante Perdeu um Dente`,`Sua Gengiva Sangra Com Frequência`,`Voce Fuma`,`Quando Você se Corta Sangra Muito`,`Dores de Dente Cabeça Face Ouvido Articulações`,`Teve Algum Desmaio Ataques Nervoso Epilepsia ou Convulsoes`,`Pode Estar Gravida`,`Procedimento Facial Botox Preenchimento Hialurônico PMA`,`CPF`,`Nome`) VALUES (%s, %s, %s,%s, %s, %s,%s, %s, %s,%s, %s, %s,%s, %s, %s,%s, %s, %s)",(motivo,tratamento,medicamento,qmedicamentos,alergia,qalergias,anestesia,ultimo,canal,gengiva,fuma,sangra,dor,desmaio,gravida,procedimento,cpf,nome))
     cnxn.commit()
 
-    
+def inserir_so(profissão,time,qtime,animal,qanimal,filho,nfilho,medo,sorriso,facebook,instagram,qinstagram,hobby,qhobby,ambiente,generom,programação, generof,cpf,nome):
+    cursor.execute("INSERT INTO sociais(`Qual sua profissão ?`,`Gosta de Futebol ?`,`Times que torce`,`Tem algum animal de estimação`,`Qual animal?`,`Tem filhos ?`,`Como se chamam ?`,`Tem medo de dentista ?`,`Esta Satisfeito Com Sua Estética Facil e de Sorriso ?`,`Tem Facebook`,`Tem Instagram ?`,`Qual instagram ?`,`Tem algum Hobby ?`,`Quais hobbies?`,`Gosta de música ambiente ?`,`Qual Gênero/Ritmo Gosta de Ouvir ?`,`Qual Tipo De Programa De Televisão Gosta De Assistir ?`,`Qual Gênero De Filme Gosta ?`,`CPF`,`Nome`) VALUES (%s, %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(profissão,time,qtime,animal,qanimal,filho,nfilho,medo,sorriso,facebook,instagram,qinstagram,hobby,qhobby,ambiente,generom,programação, generof,cpf,nome))
+    cnxn.commit()
 
 
 
