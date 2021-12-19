@@ -27,11 +27,7 @@ import mysql.connector
 cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
 cursor = cnxn.cursor()
 
-import os 
-os.environ["host"] == st.secrets["host"]
-os.environ["user"] == st.secrets["user"]
-os.environ["passwd"] == st.secrets["passwd"]
-os.environ["db"] == st.secrets["db"]
+
 
 
 
