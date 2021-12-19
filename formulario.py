@@ -3,7 +3,7 @@ from PIL import Image
 from os import write
 import streamlit as st
 from streamlit.type_util import Key 
-
+from conexão.conexao import cnxn,cursor
 
 
 
@@ -25,11 +25,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
-#conexão
 
-import mysql.connector
-cnxn = mysql.connector.connect(host="sql10.freemysqlhosting.net", user="sql10459891", passwd="ZEVEuMyb52", db="sql10459891")
-cursor = cnxn.cursor()
 
 
 def inserir(nome,telefone,cpf):
@@ -74,7 +70,7 @@ input_04 = st.selectbox("Tem Alergia a Algum Medicamento ?",["","Sim","Não"])
 if input_04 ==("Sim"):
      input_004 = st.text_input("Apresenta Alergia a Quais Medicamentos ?")
 input_05 = st.selectbox("Teve Alguma Reação a Anestesia Local ?",["","Sim","Não"])
-input_06 = st.date_input("Quando Foi o Seu Ultimo Tratamento Odontológico ?")
+input_06 = st.text_input("Quando Foi o Seu Ultimo Tratamento Odontológico ?")
 input_006 = st.selectbox ("Já Realizou Tratamento de Canal ? Prótese ? Implante ? Perdeu Algum Dente ?",["","Sim","Não"])
 input_07 = st.selectbox("Sua Gengiva Sangra Com Frequência ?",["","Sim","Não"])
 input_08 = st.selectbox("Você Fuma ?",["","Sim","Não"])
@@ -90,7 +86,7 @@ st.warning("Perguntas Opcionais")
 
 input_13 = st.text_input("Qual Sua Profissão ?")
 if input_13=="":
- input_13=("")
+ input_13=("Não Informou")
 input_14 = st.selectbox("Gosta de Futebol ?",["","Sim","Não"])
 if input_14 == ("Sim") :
     input_014 = st.text_input("Para Quais Times Você Torce ?")
@@ -106,15 +102,15 @@ if input_16 == ("Sim"):
 
 input_17 = st.selectbox("Tem Medo De Dentista ?",["","Sim","Não"])
 if input_17=="":
- input_17=("")
+ input_17=("Não Informou")
 
 input_18 = st.selectbox("Esta Satisfeito Com Sua Estética Facil e de Sorriso ? ",["","Sim","Não"])
 if input_18=="":
- input_18=("")
+ input_18=("Não Informou")
 
 input_19 = st.selectbox("Tem Facebook? ",["","Sim","Não"])
 if input_19=="":
- input_19=("")
+ input_19=("Não Informou")
 input_20 = st.selectbox("Tem Instagram ?",["","Sim","Não"])
 
 if input_20 == ("Sim"):
@@ -131,7 +127,7 @@ if input_22 == ("Sim"):
 
 input_23 = st.text_input ("Qual Tipo De Programa De Televisão Gosta De Assistir ?")
 if input_23=="":
- input_23=("")
+ input_23=("Não Informou")
 
 input_24 = st.text_input ("Qual Gênero De Filme Gosta ?")
 
