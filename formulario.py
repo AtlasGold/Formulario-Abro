@@ -3,7 +3,7 @@ from PIL import Image
 from os import write
 import streamlit as st
 from streamlit.type_util import Key 
-from conexão.conexao import cnxn,cursor
+#from conexão.conexao import cnxn,cursor
 
 
 
@@ -23,8 +23,15 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
+import mysql.connector
+cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
+cursor = cnxn.cursor()
 
-
+import os 
+os.environ["host"] == st.secrets["host"]
+os.environ["user"] == st.secrets["user"]
+os.environ["passwd"] == st.secrets["passwd"]
+os.environ["db"] == st.secrets["db"]
 
 
 
