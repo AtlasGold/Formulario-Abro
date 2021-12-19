@@ -8,7 +8,7 @@ from streamlit.type_util import Key
 
 
 #trocar o nome da pagina e o icone
-st.set_page_config(page_title = "Abro",
+st.set_page_config(page_title = "Abro - Odontologia Especializada",
     page_icon=":smiley:")
 
 #remover o botão de Menu
