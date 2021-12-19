@@ -23,6 +23,8 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
+
+#conexão com o banco
 import mysql.connector
 cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
 cursor = cnxn.cursor()
@@ -45,7 +47,7 @@ def inserir_so(profissão,time,qtime,animal,qanimal,filho,nfilho,medo,sorriso,fa
 
 
 
-
+#receber os dados
 
 st.title("Cadastro")
 input_nome = st.text_input("Digite Seu Nome Completo")
@@ -169,7 +171,7 @@ if input_22 == "":
 
  
 
-    
+#botão de enviar    
 try:                                               
  if st.button("Enviar"):
   inserir(input_nome,input_telefone,input_CPF)
