@@ -28,7 +28,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 #conexão
 
 import mysql.connector
-cnxn = mysql.connector.connect(host="172.31.17.25:3306", user="sql10459891", passwd="ZEVEuMyb52", db="sql10459891")
+cnxn = mysql.connector.connect(host="ip-172-31-17-25:3306", user="sql10459891", passwd="ZEVEuMyb52", db="sql10459891")
 cursor = cnxn.cursor()
 
 
