@@ -3,6 +3,7 @@ from PIL import Image
 from os import write
 import streamlit as st
 from streamlit.type_util import Key 
+import os
 #from conexão.conexao import cnxn,cursor
 
 
@@ -25,10 +26,13 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 #conexão com o banco
-import mysql.connector
-cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
-cursor = cnxn.cursor()
+#import mysql.connector
+#cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
+#cursor = cnxn.cursor()
 
+import mysql.connector
+cnxn = mysql.connector.connect(host=os.environ['host'], user=os.environ['user'], passwd= os.environ['passwd'], db= os.environ['db'])
+cursor = cnxn.cursor()
 
 #enviar os dados
     
